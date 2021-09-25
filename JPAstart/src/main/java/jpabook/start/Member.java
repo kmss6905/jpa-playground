@@ -14,8 +14,26 @@ public class Member {
     @Column(name = "USERNAME")
     private String username; // 이름
 
+//    @Column(name = "TEAM_ID")
+//    private Long teamId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
+
     @Enumerated(EnumType.STRING)
     private MemberType memberType;
+
+    @Column(name = "PHONE_NUMBER")
+    private String phoneNumber; // 휴대폰번호
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -32,9 +50,6 @@ public class Member {
     public void setMemberType(MemberType memberType) {
         this.memberType = memberType;
     }
-
-    @Column(name = "PHONE_NUMBER")
-    private String phoneNumber; // 휴대폰번호
 
     private Integer age; // 나이
 

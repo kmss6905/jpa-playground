@@ -93,5 +93,3 @@ private RoleType roleType;
 ###@Transient
 * 이 필드는 매핑하지 않는다.
 * 애플리케이션에서 DB에 저장하지 않는 필드
-
-
