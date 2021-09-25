@@ -8,20 +8,54 @@ public class Member {
 
     @Id
     @Column(name = "ID")
-    private String id; // 아이디
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id; // 아이디
 
-    @Column(name = "NAME")
+    @Column(name = "USERNAME")
     private String username; // 이름
+
+    @Enumerated(EnumType.STRING)
+    private MemberType memberType;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public MemberType getMemberType() {
+        return memberType;
+    }
+
+    public void setMemberType(MemberType memberType) {
+        this.memberType = memberType;
+    }
+
+    @Column(name = "PHONE_NUMBER")
+    private String phoneNumber; // 휴대폰번호
 
     private Integer age; // 나이
 
-    // Getter, Setter
+    public Member() {
+    }
 
-    public String getId() {
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    // Getter, Setter
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
